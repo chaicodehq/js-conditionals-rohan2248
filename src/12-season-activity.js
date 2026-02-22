@@ -32,4 +32,59 @@
  */
 export function getSeasonActivity(month, temperature) {
   // Your code here
+
+  //determining season
+
+  let season;
+
+  switch (month) {
+    case 12:
+    case 1:
+    case 2:
+      season = "Winter";
+      break;
+    case 3:
+    case 4:
+    case 5:
+      season = "Spring";
+      break;
+    case 6:
+    case 7:
+    case 8:
+      season = "Summer";
+      break;
+    case 9:
+    case 10:
+    case 11:
+      season = "Autumn";
+      break;
+    default:
+      return null;
+  }
+
+  if (season === "Winter") {
+    const activity = temperature < 0 ? "skiing" : "ice skating";
+    return {
+      season,
+      activity,
+    };
+  } else if (season === "Spring") {
+    const activity = temperature > 20 ? "hiking" : "museum visit";
+    return {
+      season,
+      activity,
+    };
+  } else if (season === "Summer") {
+    const activity = temperature > 35 ? "swimming" : "cycling";
+    return {
+      season,
+      activity,
+    };
+  } else if (season === "Autumn") {
+    const activity = temperature > 15 ? "nature walk" : "reading at a cafe";
+    return {
+      season,
+      activity,
+    };
+  }
 }
